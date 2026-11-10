@@ -150,7 +150,7 @@
   if (anim && hero) {
     [['.hero-bg', 0.16], ['.hero-art .glow', 0.12], ['.hero-art .map', 0.08], ['.hero-art .conn-main', 0.04],
      ['.hero-art .conn-circ', -0.05], ['.hero-art .conn-btn', -0.09]].forEach(function (d) {
-      var el = qs(d[0], hero); if (el) heroLayers.push({ el: el, k: d[1] });
+      var el = qs(d[0], hero); if (el) heroLayers.push({ el: el, k: d[1], art: d[0].indexOf('.hero-art') === 0 });
     });
     hz = { f1: qs('.hz1'), f2: qs('.hz2'), f3: qs('.hz3'), tr: qs('.hz-tr') };
     qsa('.pattern-circuit').forEach(function (sec) {
@@ -202,7 +202,11 @@
 
     if (y <= G.heroH + 120) {
       var yy = Math.min(y, G.heroH), p = G.heroH ? yy / G.heroH : 0;
-      heroLayers.forEach(function (L) { L.el.style.transform = 'translate3d(0,' + (yy * L.k).toFixed(1) + 'px,0)'; });
+      var stacked = window.innerWidth <= 1020;
+      heroLayers.forEach(function (L) {
+        var k = (stacked && L.art) ? 0 : L.k;
+        L.el.style.transform = k ? 'translate3d(0,' + (yy * k).toFixed(1) + 'px,0)' : '';
+      });
       if (hz.f1) hz.f1.style.transform = 'translate3d(0,' + (p * 44).toFixed(1) + 'px,0)';
       if (hz.f2) hz.f2.style.transform = 'translate3d(0,' + (p * 24).toFixed(1) + 'px,0)';
       if (hz.f3) hz.f3.style.transform = 'translate3d(0,' + (p * 8).toFixed(1) + 'px,0)';
