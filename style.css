@@ -400,9 +400,9 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#C2331E;backgr
   .horizon{margin-top:-10px}
 }
 @media (max-width:420px){
-  .hero-art{aspect-ratio:1/1.02}
+  .hero-art{aspect-ratio:1/.95;margin-top:26px}
   .chip.c1{left:2%}
-  .chip.c3{display:none}
+  .chip.c3{left:3%;top:90%}
   .cmp-art{width:min(86px,100%)}
 }
 
