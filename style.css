@@ -463,6 +463,8 @@ input[aria-invalid=true],textarea[aria-invalid=true]{border-color:#C2331E;backgr
 .anim .split .wi{display:inline-block;opacity:0;transform:translate3d(0,120%,0);transition:opacity .6s var(--ease2) calc(var(--d,0ms) + var(--l,0)*55ms),transform .95s var(--ease) calc(var(--d,0ms) + var(--l,0)*55ms)}
 .anim .split.in .wi{opacity:1;transform:none}
 .anim .hero h1 .wi{will-change:transform}
+.anim .hero h1 em{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--cyan)}
+.anim .hero h1 em .wi{background:linear-gradient(90deg,#38A9FF,#8fd0ff);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;padding-top:.3em;margin-top:-.3em}
 .anim .split.done .wi{will-change:auto}
 
 .anim .eyebrow.rv::before{transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease) calc(var(--d,0ms) + 220ms)}
